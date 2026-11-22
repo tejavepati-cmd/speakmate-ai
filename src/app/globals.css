@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --background: #f8f7ff;
+  --foreground: #1d1930;
+  --surface: #ffffff;
+  --surface-muted: #f2efff;
+  --surface-raised: #ffffff;
+  --border: #e6e1f5;
+  --border-strong: #cfc6ec;
+  --muted: #6d6684;
+  --primary: #6d4aff;
+  --primary-hover: #5b38ee;
+  --primary-foreground: #ffffff;
+  --primary-soft: #ede8ff;
+  --secondary: #4f46e5;
+  --pink: #db4b96;
+  --pink-soft: #fdeaf4;
+  --success: #15803d;
+  --success-soft: #e8f8ee;
+  --danger: #c02643;
+  --danger-soft: #fdebf0;
+  --warning: #a16207;
+  --ring: #6d4aff;
+  --shadow: 0 12px 34px -16px rgba(74, 48, 160, 0.28);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #100e1c;
+  --foreground: #f2efff;
+  --surface: #1a1729;
+  --surface-muted: #241f38;
+  --surface-raised: #211d33;
+  --border: #332d4d;
+  --border-strong: #4b426c;
+  --muted: #a8a0c2;
+  --primary: #a78bfa;
+  --primary-hover: #c4b1ff;
+  --primary-foreground: #150f28;
+  --primary-soft: #2e2450;
+  --secondary: #818cf8;
+  --pink: #f472b6;
+  --pink-soft: #40203a;
+  --success: #6ee7a0;
+  --success-soft: #153827;
+  --danger: #fb7185;
+  --danger-soft: #3c1a28;
+  --warning: #fbbf24;
+  --ring: #a78bfa;
+  --shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.7);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-pink: var(--pink);
+  --color-pink-soft: var(--pink-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-ring: var(--ring);
+  --radius-card: 1.25rem;
+  --shadow-card: var(--shadow);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  border-color: var(--border);
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  accent-color: var(--primary);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: max(1rem, 1em);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42rem 26rem at 8% -6%, color-mix(in oklab, var(--primary) 13%, transparent), transparent 70%),
+    radial-gradient(36rem 24rem at 100% 0%, color-mix(in oklab, var(--pink) 11%, transparent), transparent 70%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  font-size: max(1rem, 1em);
+}
+
+button {
+  cursor: pointer;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--primary) 26%, transparent);
+  border-radius: 999px;
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 32%, transparent); }
+  70% { box-shadow: 0 0 0 14px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.animate-float {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-muted) 25%, var(--border) 50%, var(--surface-muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.chat-scroll {
+  scrollbar-width: thin;
+  overscroll-behavior: contain;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

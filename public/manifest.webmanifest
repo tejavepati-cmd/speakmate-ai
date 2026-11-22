@@ -1,0 +1,30 @@
+{
+  "name": "SpeakMate AI — Your Personal English Coach",
+  "short_name": "SpeakMate",
+  "description": "Think in Your Language. Communicate with Confidence.",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8f7ff",
+  "theme_color": "#6d4aff",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Talk to AI", "short_name": "Chat", "url": "/chat", "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }] },
+    { "name": "Typing practice", "short_name": "Typing", "url": "/typing", "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }] }
+  ]
+}

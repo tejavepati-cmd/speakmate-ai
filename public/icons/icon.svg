@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SpeakMate AI icon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6d4aff"/>
+      <stop offset="0.55" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#db4b96"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#g)"/>
+  <path d="M256 96c8 0 15 5 18 13l24 66 66 24c9 3 14 12 11 21-3 8-11 13-20 12l-69-7-39 55c-5 8-17 8-22 0l-39-55-69 7c-9 1-17-4-20-12-3-9 2-18 11-21l66-24 24-66c3-8 10-13 18-13z" fill="#fff" opacity="0.96"/>
+  <path d="M154 342h204c12 0 21 10 19 22-2 10-11 17-21 17H156c-10 0-19-7-21-17-2-12 7-22 19-22z" fill="#fff" opacity="0.8"/>
+</svg>
